@@ -2,8 +2,6 @@
 //zdania typu czesc, gratulacje wlasnie wygrles nowego laptopa kliknij ponizej aby odebrac nagrode
 //wyzuciles koscią 10 () dzieki temu zyskujesz tracisz zdobywasz talizman potion item miecz łuk następny rzut wykonasz z pola (nazwy)
 
-test = [1,2,3,4];
-
 const randomFromArr = arr => {
     return Math.floor(Math.random() * arr.length);
 };
@@ -12,33 +10,31 @@ const dice = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '^', '10', '11', '%',
 const diceThrow = dice[randomFromArr(dice)];
 
 
-const pozytywy = ['dzięki temu']
-const negatywy = ['przez to']
-const pozytywyczasowniki = ['zyskujesz', 'znajdujesz' , 'wygrywasz w karty', 'wygrzebujesz' , 'odkrywasz', 'okradasz', 'otrzymujesz', 'wybierasz', 'podnosisz']
-const negatywyczasowniki = ['tracisz', 'gubisz', 'przegrywasz w karty', 'upuszczasz', 'wyrzucasz', 'przepijasz', ]
+const pozytywy = ['dzięki temu'];
+const negatywy = ['przez to'];
 
+const pozytywyczasowniki = ['zyskujesz', 'znajdujesz' , 'wygrywasz w karty', 'wygrzebujesz' , 'odkrywasz', 'otrzymujesz', 'wybierasz', 'podnosisz'];
+const negatywyczasowniki = ['tracisz', 'gubisz', 'przegrywasz w karty', 'upuszczasz', 'wyrzucasz', 'przepijasz'];
 
-const rzeczownik = {
-    męski: ['miecz', 'łuk'],
-    żeński: ['zabawka']
-
-}
-
-
+const rzeczownikiMęskie = ['miecz', 'łuk', 'wiedźmiński miecz', 'medalion z głową wilka', 'eliksir', 'medalion', 'kieliszek', 'rewolwer', 'pistolet', 'pociąg', 'stanik', 'pancerz odprysku', 'fabrial','szafir', 'rubin', 'telefon', 'diament', 'kilof', 'rower', 'hełm'];
+const rzeczownikiNijakie = ['ostrze honoru', 'auto', 'burzowe światło', 'piwo', 'złoto', 'srebro'];
+const rzeczownikiŻeńskie = ['szklankę', 'monetę', 'wódkę', 'świeczkę','kość'];
+const rzeczownikiniemęskoosobowe = ['majtki', 'buty'];
 
 
 
+const rodzajRzeczy = (item) => {
+    if (rzeczownikiMęskie.find((rzeczownik) => rzeczownik === item)) {
+        return 'Męski';
+    } else if (rzeczownikiNijakie.find((rzeczownik) => rzeczownik === item)) {
+        return 'Nijaki';
+    } else if (rzeczownikiŻeńskie.find((rzeczownik) => rzeczownik === item)) {
+        return 'Żeński';
+    } else {
+        return new Error('I dont know what kind of rzeczownik it is');
+    }
+};
 
 
+console.log(rodzajRzeczy('majtki'))
 
-
-
-
-
-
-
-
-
-
-
-console.log(diceThrow)
