@@ -6,16 +6,22 @@ const randomFromArr = arr => {
 const dice = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '^', '10', '11', '%', '12', '13', '14', '15', '16', '∞', '17', '+' , '18', '19', '20', '22', '23', '24', '25', '26', '27', '28', '29', '30', '0'];
 const diceThrow = randomFromArr(dice);
 
-const pozytywy1 = ['gratulacje', 'ale fart', 'super', 'na szczęście'];
-const negatywy1 = ['oj', 'ups...', 'niestety', 'przykro mi'];
+const pozytywy1 = ['Gratulacje', 'Ale fart', 'Super', 'Na szczęście'];
+const negatywy1 = ['Oj', 'Ups...', 'Niestety', 'Przykro mi'];
 const pozytywy = ['dzięki temu'];
 const negatywy = ['przez to'];
 
 const pozytywyczasowniki = ['zyskujesz', 'znajdujesz' , 'wygrywasz w karty', 'wygrzebujesz' , 'odkrywasz', 'otrzymujesz', 'wybierasz', 'podnosisz'];
 const negatywyczasowniki = ['tracisz', 'gubisz', 'przegrywasz w karty', 'upuszczasz', 'wyrzucasz', 'przepijasz'];
 
+const rzeczownikiMęskie = ['miecz', 'kolczyk', 'łuk', 'wiedźmiński miecz', 'medalion z głową wilka', 'eliksir', 'medalion', 'kieliszek', 'rewolwer', 'słownik', 'pistolet', 'pociąg', 'stanik', 'pancerz odprysku', 'fabrial','szafir', 'rubin', 'telefon', 'diament', 'kilof', 'rower', 'hełm'];
+const rzeczownikiNijakie = ['ostrze honoru', 'mydło', 'auto', 'burzowe światło', 'piwo', 'złoto', 'srebro'];
+const rzeczownikiŻeńskie = ['szklankę', 'monetę', 'wódkę', 'świeczkę','kość'];
+const rzeczownikiNiemęskoosobowe = ['majtki', 'buty'];
 
-
+let wszystkieRzeczowniki = []
+wszystkieRzeczowniki.push(...rzeczownikiMęskie, ...rzeczownikiNijakie, ...rzeczownikiŻeńskie, ...rzeczownikiNiemęskoosobowe)
+const randomRzeczownik = randomFromArr(wszystkieRzeczowniki)
 
 const pierwszeSłowo = () => {
     const i = []
@@ -33,18 +39,7 @@ const pierwszeSłowo = () => {
     } return i;
 };
 
-console.log(pierwszeSłowo());
-console.log(pierwszeSłowo());
-console.log(`${pierwszeSłowo()[0]} , wyrzuciłeś kością ${diceThrow}, ${pierwszeSłowo()[1]}, ${pierwszeSłowo()[2]}`)
-
-
-const rzeczownikiMęskie = ['miecz', 'kolczyk', 'łuk', 'wiedźmiński miecz', 'medalion z głową wilka', 'eliksir', 'medalion', 'kieliszek', 'rewolwer', 'słownik', 'pistolet', 'pociąg', 'stanik', 'pancerz odprysku', 'fabrial','szafir', 'rubin', 'telefon', 'diament', 'kilof', 'rower', 'hełm'];
-const rzeczownikiNijakie = ['ostrze honoru', 'mydło', 'auto', 'burzowe światło', 'piwo', 'złoto', 'srebro'];
-const rzeczownikiŻeńskie = ['szklankę', 'monetę', 'wódkę', 'świeczkę','kość'];
-const rzeczownikiNiemęskoosobowe = ['majtki', 'buty'];
-
-
-
+const final = pierwszeSłowo();
 const rodzajRzeczy = (item) => {
     if (rzeczownikiMęskie.find((rzeczownik) => rzeczownik === item)) {
         return 'Męski';
@@ -57,9 +52,9 @@ const rodzajRzeczy = (item) => {
     }
 };
 
-let wszystkieRzeczowniki = []
-wszystkieRzeczowniki.push(...rzeczownikiMęskie, ...rzeczownikiNijakie, ...rzeczownikiŻeńskie, ...rzeczownikiNiemęskoosobowe)
-const randomRzeczownik = randomFromArr(wszystkieRzeczowniki)
 
-console.log(diceThrow)
-console.log(randomRzeczownik)
+const finalneZdanie = `${final[0]}, wyrzuciłeś kością ${diceThrow}, ${final[1]} ${final[2]} ${randomRzeczownik}.`;
+console.log(finalneZdanie)
+
+
+document.querySelector(h1).innerHTML = 'Chyba działa'
